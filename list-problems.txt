@@ -1,0 +1,336 @@
+# nums = [1, 2, 3, 4, 5]
+# k=3
+# # k=k% len(nums)
+# rotates=nums[-k:] + nums[:-k]
+# print(rotates)
+def rotate_list(nums,k):
+    if not nums or k==0:
+        return nums
+    n=len(nums)
+    k=k%n
+    return nums[-k:] + nums[:-k]
+
+nums = [10, 20, 30, 40, 50]   
+k=3
+result= rotate_list(nums,k)
+print(result)
+
+
+
+def rem_dup(nums):
+    unique=[]
+    
+    for x in nums:
+        if x not in unique:
+            unique.append(x)
+    return unique
+
+nums = [1, 3, 5, 3, 1, 7, 5, 9]
+print(rem_dup(nums))
+
+
+
+def merge_list(list1,list2):
+    merged=[]
+    
+    for x in list1:
+    merged =[]
+    
+    for x in list1:
+        merged.append(x)
+        
+    for x in list2:
+        merged.append(x)
+        
+    return merged
+list1 = [1,3,5]
+list2 = [2,4,6,8]
+
+
+
+def target_sum(nums, target):
+    
+    pairs = []
+    used = []
+    
+    for x in nums:
+        y = target - x
+        
+        if x not in used and y in nums:
+            
+            # handle cases like (5,5)
+            if y != x or nums.count(x) > 1:
+                
+                pairs.append((x, y))
+                used.append(x)
+                used.append(y)
+
+    return pairs
+
+
+nums = [2, 4, 3, 5, 7, 8, 9]
+target = 10
+
+print(target_sum(nums, target))
+
+
+
+def freq(nums):
+    counts = {}   # dictionary to store frequencies
+    
+    for x in nums:
+        if x in counts:
+            counts[x] += 1    # already seen → increase count
+        else:
+            counts[x] = 1     # first time → set to 1
+            
+    return counts
+
+
+nums = [1, 2, 3, 2, 4, 3]
+print(freq(nums))
+
+
+
+
+
+def freq(nums):
+    dict = {}
+    
+    for x in nums:
+        if x in dict:
+            dict[x] += 1      # increase count
+        else:
+            dict[x] = 1       # first time, set to 1
+    return dict
+    
+nums = [1, 2, 3, 2, 4, 3]
+print(freq(nums))
+
+
+
+
+def remove_ele(nums, value):
+    result = []
+
+    for sub in nums:           # each sublist
+        new_sub = []           # filtered sublist
+        
+        for x in sub:          # each element inside sublist
+            if x != value:     # keep only elements NOT equal to value
+                new_sub.append(x)
+        
+        result.append(new_sub)
+
+    return result
+
+
+nums = [[1, 2], [3, 4], [5, 6, 7]]
+value = 2
+
+print(remove_ele(nums, value))
+
+
+
+
+
+
+
+def remove_ele(nums, value):
+    result = []
+
+    for x in nums:        # x is each sublist like [1,2]
+        new_x = []        # new filtered sublist
+        
+        for item in x:    # item is each number inside [1,2]
+            if item != value:
+                new_x.append(item)
+
+        result.append(new_x)
+
+    return result
+
+
+nums = [[1, 2], [3, 4], [5, 6, 7]]
+value = 2
+
+print(remove_ele(nums, value))
+
+
+
+def remove_ele(nums):
+    result=[]
+    # total=0
+    for x in nums:
+        if x % 2 != 0 :
+            result.append(x)
+           
+    return result
+    
+nums=[1,2,3,6,7,3,2]
+print(remove_ele(nums))
+
+
+
+
+
+
+def second_largest(nums):
+    largest = max(nums)          # find largest
+    nums.remove(largest)         # remove only ONE occurrence
+    return max(nums) 
+
+
+
+
+
+
+my_list=[23,56,78,90,95]
+my_list.sort()
+print(my_list)
+print("first largest:" my_list[-1])
+print("second largest:"my_list[-2])
+
+
+
+def remove_dups(nums):
+    result = []
+    
+    for x in nums:
+        if x not in result:   # only add if not already added
+            result.append(x)
+    
+    return result
+
+
+nums = [1, 2, 2, 3, 4, 4, 5]
+print(remove_dups(nums))
+
+
+
+
+def find_missing(nums):
+    n = len(nums)                 # how many numbers are present
+    for i in range(1, n + 2):     # expected numbers = 1 to n+1
+        if i not in nums:         # if a number is NOT in the list
+            return i              # that is the missing number
+
+
+nums = [1, 2, 4, 5]
+print(find_missing(nums))
+
+
+
+
+
+def intersection(list1,list2):
+    result=[]
+    for x in list1:
+        if x in list2:
+            if x not in result:
+               result.append(x)
+    return result        
+
+list1 = [1, 2, 2, 3]
+list2 = [2, 2, 4]
+
+print(intersection(list1,list2))
+
+
+
+def intersection(list1,list2):
+    result=[]
+    for x in list1:
+        if x not in list2:
+            if x not in result:
+               result.append(x)
+    for y in list2:
+        if y not in list1:
+            if y not in result:
+                result.append(y)
+    return result        
+list1 = [1, 2, 3, 4]
+list2 = [3, 4, 5, 6]
+
+print(intersection(list1,list2))
+
+
+
+
+nums = [8, 8, 3, 5, 3]
+
+unique_nums = list(set(nums))   # remove duplicates
+unique_nums.sort()              # ascending sort
+
+second_smallest = unique_nums[1]
+
+print(second_smallest)
+
+
+
+
+
+def second_small(nums):
+    smallest=nums[0]
+    for x in nums:
+        if x<smallest:
+            smallest=x
+    second = None
+    for x in nums:
+        if  x != smallest:
+              if second is None or x<second:
+                     second = x
+                
+    return second
+nums=[8, 8, 3, 5, 3]
+print(second_small(nums))
+
+    
+def move_ele(nums):
+    positive=[]
+    negative=[]
+    
+    for x in nums:
+        if x<0:
+            negative.append(x)
+        else:
+            positive.append(x)
+    return negative + positive
+nums=[3, -1, 0, -7, 5, -2]
+print(move_ele(nums))
+
+
+
+def even_odd(nums):
+    even=[]
+    odd=[]
+    for x in nums:
+        if x%2==0:
+            even.append(x)
+        else:
+            odd.append(x)
+    return even,odd
+
+nums = [2,4,6,7,8,9,5]
+even,odd=even_odd(nums)
+print("Even numbers:", even)
+print("Odd numbers:", odd)
+
+
+
+
+def even_odd(nums):
+    even_count=0
+    odd_count=0
+    for x in nums:
+        if x%2==0:
+            even_count+=1
+        else:
+            odd_count+=1
+    return even_count,odd_count
+
+nums = [2,4,6,7,8,9,5]
+even,odd=even_odd(nums)
+
+print("Even count =", even)
+print("Odd count  =", odd)

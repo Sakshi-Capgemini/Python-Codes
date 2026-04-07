@@ -349,4 +349,18 @@ def remv_by_value(nums,value):
         result.append(new_sub)  
     return result
 nums = [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]
-print(remv_by_value(nums,value)) 
+print(remv_by_value(nums,value))
+
+
+
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+today = 6   # Sunday
+k = 3       # after 3 days
+
+next_day = (today + k) % 7
+print(days[next_day])
+
+
+
+
+

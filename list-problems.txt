@@ -334,3 +334,19 @@ even,odd=even_odd(nums)
 
 print("Even count =", even)
 print("Odd count  =", odd)
+
+
+
+
+def remv_by_value(nums,value):
+    result=[]
+    
+    for sub in nums:
+        new_sub=[]
+        for x in sub:
+            if x != value and x% 3 == 0:
+                new_sub.append(x)
+        result.append(new_sub)  
+    return result
+nums = [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]
+print(remv_by_value(nums,value)) 
